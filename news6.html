@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech News Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .bg-video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .logo h2 {
+      font-size: 30px;
+      color: #fff;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .menu li {
+      margin-left: 20px;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .menu li a:hover {
+      color: #00aced;
+    }
+
+    .lang-search-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .lang-btn {
+      padding: 5px 10px;
+      border: none;
+      background-color: #00aced;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .lang-btn:hover {
+      background-color: #0077a6;
+    }
+
+    .search-input {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+
+
+
+    #welcome-text {
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      font-size: 24px;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .bottom-bar {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid #444;
+      font-size: 14px;
+    }
+
+    .follow-us {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 30px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #00aced;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .navbar .menu {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+    }
+
+    .btn {
+      position: relative;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 13rem;
+      overflow: hidden;
+      height: 3rem;
+      background-size: 300% 300%;
+      cursor: pointer;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+      transition: 0.5s;
+      animation: gradient_301 5s ease infinite;
+      border: double 4px transparent;
+      background-image: linear-gradient(#212121, #212121),
+        linear-gradient(137.48deg,
+          #ffdb3b 10%,
+          #fe53bb 45%,
+          #8f51ea 67%,
+          #0044ff 87%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    #container-stars {
+      position: fixed;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: 0.5s;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+    }
+
+    strong {
+      z-index: 2;
+      font-family: "Avalors Personal Use";
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: #ffffff;
+      text-shadow: 0 0 4px white;
+    }
+
+    #glow {
+      position: absolute;
+      display: flex;
+      width: 12rem;
+    }
+
+    .circle {
+      width: 100%;
+      height: 30px;
+      filter: blur(2rem);
+      animation: pulse_3011 4s infinite;
+      z-index: -1;
+    }
+
+    .circle:nth-of-type(1) {
+      background: rgba(254, 83, 186, 0.636);
+    }
+
+    .circle:nth-of-type(2) {
+      background: rgba(142, 81, 234, 0.704);
+    }
+
+    .btn:hover #container-stars {
+      z-index: 1;
+      background-color: #212121;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .btn:active {
+      border: double 4px #fe53bb;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      animation: none;
+    }
+
+    .btn:active .circle {
+      background: #fe53bb;
+    }
+
+    #stars {
+      position: relative;
+      background: transparent;
+      width: 200rem;
+      height: 200rem;
+    }
+
+    #stars::after {
+      content: "";
+      position: absolute;
+      top: -10rem;
+      left: -100rem;
+      width: 100%;
+      height: 100%;
+      animation: animStarRotate 90s linear infinite;
+    }
+
+    #stars::after {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+    }
+
+    #stars::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 170%;
+      height: 500%;
+      animation: animStar 60s linear infinite;
+    }
+
+    #stars::before {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+    @keyframes animStar {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-135rem);
+      }
+    }
+
+    @keyframes animStarRotate {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes gradient_301 {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pulse_3011 {
+      0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+      }
+
+      100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+
+
+    .buttonpma {
+      margin: 0;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      border: none;
+      animation: r1 3s ease-in-out infinite;
+
+      border: 7px #056bfa21 solid;
+      border-radius: 14px;
+    }
+
+
+    .buttonpma {
+      --border-right: 6px;
+      --text-stroke-color: rgba(85, 87, 255, 0.78);
+      --animation-color: #056bfa;
+      --fs-size: 2em;
+      letter-spacing: 3px;
+      text-decoration: none;
+      font-size: var(--fs-size);
+      font-family: "Arial";
+      position: relative;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--text-stroke-color);
+    }
+
+    .hover-text {
+      position: absolute;
+      box-sizing: border-box;
+      content: attr(data-text);
+      color: var(--animation-color);
+      width: 0%;
+      inset: 0;
+      border-right: var(--border-right) solid var(--animation-color);
+      overflow: hidden;
+      transition: 1.5s;
+      -webkit-text-stroke: 1px var(--animation-color);
+      animation: r2 2s ease-in-out infinite;
+    }
+
+    .buttonpma:hover .hover-text {
+      width: 100%;
+      filter: drop-shadow(0 0 70px var(--animation-color));
+    }
+
+    @keyframes r1 {
+      50% {
+        transform: rotate(-1deg) rotateZ(-10deg);
+      }
+    }
+
+    @keyframes r2 {
+      50% {
+        transform: rotateX(-65deg);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <video autoplay muted loop class="bg-video">
+      <source src="video//WhatsApp Video 2025-05-11 at 15.36.26_c059d9aa.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay">
+      <div class="navbar">
+        <button data-text="Awesome" class="buttonpma">
+          <span class="actual-text">&nbsp;TechNews&nbsp;</span>
+          <span class="hover-text" aria-hidden="true">&nbsp;TechNews&nbsp;</span>
+        </button>
+        <ul class="menu">
+          <li><a href="news6.html" id="home-text">Home</a></li>
+          <li><a href="news2.html" id="features-text">Features</a></li>
+          <li>
+            <a href="about2.html" target="_blank" id="about-text">About</a>
+          </li>
+          <li><a href="contact.html" id="contact-text">Contact</a></li>
+        </ul>
+        <div class="lang-search-bar">
+          <button class="lang-btn" onclick="toggleLanguage()">
+            EN / عربي
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <h1><span id="welcome-text"></span></h1>
+
+
+        <a href="news2.html" class="btn">
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+          <strong>Explore Now</strong>
+          <span id="glow">
+            <span class="circle"></span>
+            <span class="circle"></span>
+          </span>
+        </a>
+      </div>
+      <script>
+        const messages = [
+          "Welcome to our website",
+          "Stay updated with the latest news",
+          "Your source for reliable tech info",
+          "تابع آخر أخبار التقنية لحظة بلحظة",
+          "موقعك المفضل لمعرفة كل جديد",
+        ];
+
+        let msgIndex = 0;
+        let charIndex = 0;
+        const welcomeEl = document.getElementById("welcome-text");
+
+        function typeWriter() {
+          if (charIndex <= messages[msgIndex].length) {
+            welcomeEl.textContent = messages[msgIndex].slice(0, charIndex++);
+            setTimeout(typeWriter, 100);
+          } else {
+            setTimeout(() => {
+              charIndex = 0;
+              msgIndex = (msgIndex + 1) % messages.length;
+              typeWriter();
+            }, 2000);
+          }
+        }
+
+        typeWriter();
+
+        let isArabic = false;
+        function toggleLanguage() {
+          isArabic = !isArabic;
+
+          const homeText = document.getElementById("home-text");
+          const featuresText = document.getElementById("features-text");
+          const aboutText = document.getElementById("about-text");
+          const contactText = document.getElementById("contact-text");
+
+          if (isArabic) {
+            homeText.textContent = "الصفحة الرئيسية";
+            featuresText.textContent = "المميزات";
+            aboutText.textContent = "من نحن";
+            contactText.textContent = "اتصل بنا";
+          } else {
+            homeText.textContent = "Home";
+            featuresText.textContent = "Features";
+            aboutText.textContent = "About";
+            contactText.textContent = "Contact";
+          }
+        }
+
+      </script>
+</body>
+
+</html>
