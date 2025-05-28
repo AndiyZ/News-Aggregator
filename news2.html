@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
+    integrity="sha512-HHsOC+h3najWR7OKiGZtfhFIEzg5VRIPde0kB0bG2QRidTQqf+sbfcxCTB16AcFB93xMjnBIKE29/MjdzXE+qw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="news2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <title>TechNews</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">TechNews</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#sportsNews">Sports</a></li>
+        <li><a href="#businessNews">Business</a></li>
+        <li><a href="#techNews">Technology</a></li>
+        <li><a href="#scienceNews">Science</a></li>
+        <li><a href="#healthNews">Health</a></li>
+        <li><a href="#gamingNews">Gaming</a></li>
+        <li><a href="#entertainmentNews">Entertainment</a></li>
+        <li><a href="#politicsNews">Politics</a></li>
+      </ul>
+      <div class="bar">
+        <i class="open fa-solid fa-bars-staggered"></i>
+        <i class="close fa-solid fa-xmark"></i>
+      </div>
+    </nav>
+  </div>
+
+  <div class="topHeadlines">
+    <div class="left">
+      <div class="title">
+        <h2>Latest News</h2>
+      </div>
+      <div class="img" id="breakingImg"></div>
+      <div class="text" id="breakingNews">
+        <div class="title"></div>
+        <div class="description"></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="title">
+        <h2>Top Headlines</h2>
+      </div>
+      <div class="topNews"></div>
+    </div>
+  </div>
+
+  <div class="page2">
+    <div class="news" id="sportsNews">
+      <div class="title">
+        <h2>Sports News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="businessNews">
+      <div class="title">
+        <h2>Business News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="techNews">
+      <div class="title">
+        <h2>Technology News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="scienceNews">
+      <div class="title">
+        <h2>Science News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="healthNews">
+      <div class="title">
+        <h2>Health News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="gamingNews">
+      <div class="title">
+        <h2>Gaming News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="entertainmentNews">
+      <div class="title">
+        <h2>Entertainment News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+    <div class="news" id="politicsNews">
+      <div class="title">
+        <h2>Politics News</h2>
+      </div>
+      <div class="newsBox"></div>
+    </div>
+  </div>
+  <div class="news" id="videos">
+    <div class="title">
+      <h2>Tech Videos</h2>
+    </div>
+    <div class="videoBox">
+      <iframe width="350" height="200" src="video/Document - Google Chrome 2025-05-25 10-49-55.mp4" frameborder="0"
+        allowfullscreen></iframe>
+      <iframe width="350" height="200" src="https://www.youtube.com/embed/Tn6-PIqc4UM" frameborder="0"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="commentsSection">
+    <h3>Comments</h3>
+    <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+    <button onclick="addComment()">Post Comment</button>
+    <div id="commentsList"></div>
+  </div>
+  <div class="footer">
+    <div class="box">
+      <div class="left">
+        <div class="categories">
+          <p>Categories</p>
+          <div>
+            <p>Sports</p>
+          </div>
+          <div>
+            <p>Business</p>
+          </div>
+          <div>
+            <p>Technology</p>
+          </div>
+          <div>
+            <p>Science</p>
+          </div>
+          <div>
+            <p>Health</p>
+          </div>
+          <div>
+            <p>Gaming</p>
+          </div>
+          <div>
+            <p>Entertainment</p>
+          </div>
+          <div>
+            <p>Politics</p>
+          </div>
+        </div>
+        <div class="news" id="sportsNews">...</div>
+        <div class="news" id="businessNews">...</div>
+        <div class="contactUs">
+          <div class="contact">
+            <p>Contact Us</p>
+            <div>Phone No: <span>01210282913</span></div>
+            <div>Email: <span>TechNews32@gmail.com</span></div>
+            <div>Address: <span>Egypt</span></div>
+          </div>
+          <div class="icon">
+            <div class="social-icons">
+              <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/YourProfile" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.youtube.com/YourChannel" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="newsletter">
+            <p>Subscribe to Our TechNews</p>
+            <div class="email">
+              <input type="email" placeholder="Enter Your Email Here" />
+              <button>Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyrights">Copyrights &copy; 2025</div>
+    </div>
+    <button id="scrollTopBtn" class="scroll-btn" title="Back to Top">
+      &#8679; <!-- السهم اللي بيطلع لفوق -->
+    </button>
+
+    <script src="news2.js"></script>
+</body>
+
+</html>
